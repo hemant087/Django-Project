@@ -1,33 +1,60 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<hr>
 
+<hr>
 <div style="margin: 5%; margin-top: 0%; ">
 
-    <form>
+    <form action="/add_emp" method="post">
+        {% csrf_token %}
         <div class="row">
             <div class="col">
                 <label for="first_name">First name</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" value="{{first_name}}" id="first_name">
             </div>
             <div class="col">
                 <label for="last_name">Last name</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" value=" {{last_name}} " id="last_name">
             </div>
         </div>
-    </form>
-    <form>
+
         <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="email">Email address</label><br>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" value=" {{email}} ">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                else.</small>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="row">
+            <div class="col">
+                <label for="department">Department</label>
+                <input type="text" id="department" value="{{ department}}">
+            </div>
+            <div class="col">
+                <label for="role">Role</label>
+                <input type="text" id="role" value="{{role}}">
+            </div>
+            <div class="col">
+
+                <label for="salary"> Salary</label>
+                <input type="number" id="salary" value="{{salary}}">
+            </div>
+            <div class="col">
+
+                <label for="bonus"> Bonus</label>
+                <input type="number" id="bonus" value="{{bonus}}">
+            </div>
         </div>
+        <div class="row" style="margin-top: 3%;">
+            <div class="col">
+                <!-- <label for="exampleInputPassword1">Password</label> -->
+                <input type="password" id="Password1" class="form-control" placeholder="Password" value="{{password}}">
+            </div>
+            <div class="col">
+                <!-- <label for="exampleInputPassword1"> Conform Password</label> -->
+                <input type="password" id="Password2" class="form-control" placeholder="Conform Password" value="{{password}}">
+            </div>
+        </div>
+        <hr>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
